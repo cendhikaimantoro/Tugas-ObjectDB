@@ -53,8 +53,7 @@ public class Insert {
         em.getTransaction().commit();
         
         em.getTransaction().begin();
-          Customer c = new Customer();
-          c.setIDCard(i);
+          Customer c = new Customer(i);
           c.setBirthDate(new Date(96, 05, 17));
           c.setName("Cendhika Imantoro");
           c.setLocation(l);
