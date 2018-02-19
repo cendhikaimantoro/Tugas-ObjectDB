@@ -19,10 +19,7 @@ import javax.persistence.*;
 public class Customer implements Serializable{
   private static final long serialVersionUID = 1L;
   
-  @Id @GeneratedValue
-  private long uid;
-  
-  @OneToOne
+  @Id @OneToOne
   private IDCard id;
   
   private String name;
@@ -46,6 +43,12 @@ public class Customer implements Serializable{
   public Customer() {
     phoneNumber = new HashSet<>();
   }
+  
+  public Customer(IDCard id) {
+    this.phoneNumber = new HashSet<>();
+    this.id = id;
+  }
+  
   public int getAge() {
     long ageMs = new Date().getTime()-birthDate.getTime();
     Date age = new Date(ageMs);
@@ -56,12 +59,24 @@ public class Customer implements Serializable{
     this.id = id;
   }
   
+  public IDCard getIDCard() {
+    return id;
+  }
+  
   public void setName(String name) {
     this.name = name;
   }
   
+  public String getName() {
+    return name;
+  }
+  
   public void setLocation(Location location) {
     this.location = location;
+  }
+  
+  public Location setLocation() {
+    return location;
   }
   
   public void setPhoneNumber(HashSet<String> phoneNumber) {
@@ -75,31 +90,16 @@ public class Customer implements Serializable{
     this.phoneNumber.remove(phoneNumber);
   }
   
-  public void setBirthDate(Date birthDate) {
-    this.birthDate = birthDate;
-  }
-  
-  public IDCard getIDCard() {
-    return id;
-  }
-  
-  public String getName() {
-    return name;
-  }
-  
-  public Location setLocation() {
-    return location;
-  }
-  
   public HashSet<String> getPhoneNumber() {
     return phoneNumber;
   }
   
-  public Date getBirthDate() {
-    return birthDate;
+  public void setBirthDate(Date birthDate) {
+    this.birthDate = birthDate;
   }
   
-  
-  
+  public Date getBirthDate() {
+    return birthDate;
+  } 
   
 }
