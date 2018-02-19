@@ -5,9 +5,7 @@
  */
 package query;
 
-import entity.Customer;
-import entity.IDCard;
-import entity.Location;
+import entity.*;
 import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,6 +47,7 @@ public class Delete {
           em.createQuery("DELETE FROM entity.Employee").executeUpdate();
           em.createQuery("DELETE FROM entity.RegularCustomer").executeUpdate();
           em.createQuery("DELETE FROM entity.ExecutiveCustomer").executeUpdate();
+          em.createQuery("DELETE FROM entity.Good").executeUpdate();
         em.getTransaction().commit();
 
       em.close();
