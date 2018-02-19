@@ -45,6 +45,7 @@ public class Employee implements Serializable{
     }
     
     public Employee(String id){
+        this.phoneNumber = new HashSet<>();
         this.id = id;
     }
     

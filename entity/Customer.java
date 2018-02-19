@@ -55,10 +55,6 @@ public class Customer implements Serializable{
     return age.getYear();
   };
   
-  public void setIDCard(IDCard id) {
-    this.id = id;
-  }
-  
   public IDCard getIDCard() {
     return id;
   }
