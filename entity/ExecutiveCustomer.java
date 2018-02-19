@@ -18,8 +18,7 @@ public class ExecutiveCustomer extends Customer implements Serializable {
   private static final long serialVersionUID = 1L;
   
   private float discount;
-  //private Employee consultant;
-  
+  private Employee consultant;
   
   public ExecutiveCustomer() {
     super();
@@ -39,7 +38,6 @@ public class ExecutiveCustomer extends Customer implements Serializable {
     return this.discount;
   }
   
-  /*
   public void setManager(Employee consultant) {
     this.consultant = consultant;
   }
@@ -47,5 +45,5 @@ public class ExecutiveCustomer extends Customer implements Serializable {
   public Employee getConsultant() {
     return this.consultant;
   }
-  */
+ 
 }

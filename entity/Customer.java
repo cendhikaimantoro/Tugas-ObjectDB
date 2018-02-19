@@ -32,20 +32,26 @@ public class Customer implements Serializable{
   private Date birthDate;
   
   //TODO attribute set<Card> Card; + SETTER + GETTER
-  //private Set<Card> card;  
+  
+  @OneToMany
+  private HashSet<Card> card;  
   
   //TODO relationship Branch registrationBranch inverse Branch::registeredCustomer; + SETTER + GETTER
   //private Branch registrationBranch;
   
   //TODO relationship set<Order> issuedOrder inverse Order::customer; + SETTER + GETTER
-  //private Set<Order> issuedOrder;
+  //private HashSet<Order> issuedOrder;
   
   public Customer() {
     phoneNumber = new HashSet<>();
+    card = new HashSet<>();
+    //issuedOrder = new HashSet<>();
   }
   
   public Customer(IDCard id) {
     this.phoneNumber = new HashSet<>();
+    card = new HashSet<>();
+    //issuedOrder = new HashSet<>();
     this.id = id;
   }
   
@@ -88,6 +94,21 @@ public class Customer implements Serializable{
   
   public HashSet<String> getPhoneNumber() {
     return phoneNumber;
+  }
+  
+  public void setCard(HashSet<Card> card) {
+    this.card = card;
+  }
+  
+  public void addCard(Card card) {
+    this.card.add(card);
+  }
+  public void delCard(Card card) {
+    this.card.remove(card);
+  }
+  
+  public HashSet<Card> getCard() {
+    return card;
   }
   
   public void setBirthDate(Date birthDate) {
