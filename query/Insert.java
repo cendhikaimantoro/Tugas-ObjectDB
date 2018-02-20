@@ -313,7 +313,12 @@ public class Insert {
           //GoodInBranch
           
           //Component
-          
+          em.getTransaction().begin();
+            Component component1 = new Component();
+            component1.setComponent(good2);
+            component1.setQuantityNeeded(2);
+            em.persist(component1);
+          em.getTransaction().commit();
         //Section 5 Order
           //Order
           
