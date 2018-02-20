@@ -5,19 +5,14 @@
     <mapping-file>META-INF/mappingFile.xml</mapping-file>
     <class>entity.Branch</class>
     <class>entity.Card</class>
-    <class>entity.Component</class>
     <class>entity.Customer</class>
     <class>entity.Employee</class>
-    <class>entity.ExecutiveCustomer</class>
     <class>entity.Good</class>
     <class>entity.GoodInBranch</class>
-    <class>entity.HQ</class>
     <class>entity.IDCard</class>
     <class>entity.Location</class>
-    <class>entity.NonHQ</class>
     <class>entity.Order</class>
     <class>entity.OrderQty</class>
-    <class>entity.RegularCustomer</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="objectdb://localhost:6136/PDL.odb"/>
       <property name="javax.persistence.jdbc.user" value="admin"/>

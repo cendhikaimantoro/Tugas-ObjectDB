@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 
@@ -24,7 +25,7 @@ public class Customer implements Serializable{
   private String name;
   @OneToOne
   private Location location;
-  private HashSet<String> phoneNumber;
+  private Set<String> phoneNumber;
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date birthDate;
   @OneToMany
@@ -32,12 +33,20 @@ public class Customer implements Serializable{
   @ManyToOne
   private Branch registrationBranch;
   @OneToMany(mappedBy="customer")
-  private HashSet<Order> issuedOrder;
+  private Set<Order> issuedOrder;
+    
+  private float discount;
+  @ManyToOne
+  private Employee consultant;
+  
+  private int point;
   
   public Customer() {
     phoneNumber = new HashSet<>();
     card = new HashSet<>();
     issuedOrder = new HashSet<>();
+    this.discount = 0;
+    this.point = 0;
   }
   
   public Customer(IDCard id) {
@@ -45,6 +54,8 @@ public class Customer implements Serializable{
     card = new HashSet<>();
     issuedOrder = new HashSet<>();
     this.id = id;
+    this.discount = 0;
+    this.point = 0;
   }
   
   public int getAge() {
@@ -85,7 +96,7 @@ public class Customer implements Serializable{
   }
   
   public HashSet<String> getPhoneNumber() {
-    return phoneNumber;
+    return (HashSet) phoneNumber;
   }
   
   public void setCard(HashSet<Card> card) {
@@ -131,6 +142,30 @@ public class Customer implements Serializable{
   }
   
   public HashSet<Order> getIssuedOrder() {
-    return issuedOrder;
+    return (HashSet) issuedOrder;
+  }
+  
+    public void setDiscount(float discount) {
+    this.discount = discount;
+  }
+  
+  public float getDiscount() {
+    return this.discount;
+  }
+  
+  public void setConsultant(Employee consultant) {
+    this.consultant = consultant;
+  }
+  
+  public Employee getConsultant() {
+    return this.consultant;
+  }
+  
+  public void setPoint(int point) {
+    this.point = point;
+  }
+  
+  public int getPoint() {
+    return point;
   }
 }

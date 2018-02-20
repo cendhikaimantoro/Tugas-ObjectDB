@@ -40,66 +40,7 @@ public class Insert {
     
       EntityManager em = emf.createEntityManager();
       
-      /*  em.getTransaction().begin();
-          Location locationc = new Location("Cisitu Baru 13", "Bandung", "Jawa Barat", "40135");
-          em.persist(locationc);
-        em.getTransaction().commit();
-
-        em.getTransaction().begin();
-          IDCard idcard = new IDCard("3573011705960001", "KTP");
-          em.persist(idcard);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          Customer customer = new Customer(idcard);
-          customer.setBirthDate(new Date(96, 05, 17));
-          customer.setName("Cendhika Imantoro");
-          customer.setLocation(locationc);
-          customer.addPhoneNumber("085731330212");
-          em.persist(customer);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          Card card = new Card("123413501342");
-          card.setBank("Bank Neraka");
-          card.setType(Card.Type.debit);
-          card.setLastTransactionDate(new Date(2018, 2, 14));
-          card.setTotalTransaction(2500000);
-          card.setExpirationDate(new Date(2018, 12, 25));
-          em.persist(card);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          Location locatione = new Location("Cisitu Baru 11", "Bandung", "Jawa Barat", "40135");
-          em.persist(locatione);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          Employee employee = new Employee("02-03-2014-05");
-          employee.setName("Ujang");
-          employee.setLocation(locatione);
-          employee.addPhoneNumber("081345471223");
-          employee.setStartingDate(new Date(2017, 5, 23));
-          employee.setBaseSalary(1500000);
-          employee.setBirthDate(new Date(1980, 11, 13));
-          em.persist(employee);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          IDCard idcardRegular = new IDCard("3573011705960002", "KTP");
-          em.persist(idcardRegular);
-        em.getTransaction().commit();
-        
-        em.getTransaction().begin();
-          RegularCustomer regularCustomer = new RegularCustomer(idcardRegular);
-          regularCustomer.setBirthDate(new Date(96, 05, 17));
-          regularCustomer.setName("Cendhika Imantoro");
-          regularCustomer.setLocation(locationc);
-          regularCustomer.addPhoneNumber("085731330212");
-          em.persist(regularCustomer);
-        em.getTransaction().commit();
       
-        */
       
       
         //Section 1 Location, IDCard
@@ -169,7 +110,7 @@ public class Insert {
         //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
           //ExecutiveCustomer
           em.getTransaction().begin();
-            ExecutiveCustomer executiveCustomer1 = new ExecutiveCustomer(iDCard1);
+            Customer executiveCustomer1 = new Customer(iDCard1);
             executiveCustomer1.setBirthDate(new Date(96, 05, 17));
             executiveCustomer1.setName("Cendhika Imantoro");
             executiveCustomer1.setLocation(location1);
@@ -179,7 +120,7 @@ public class Insert {
             em.persist(executiveCustomer1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            ExecutiveCustomer executiveCustomer2 = new ExecutiveCustomer(iDCard2);
+            Customer executiveCustomer2 = new Customer(iDCard2);
             executiveCustomer2.setBirthDate(new Date(97, 11, 24));
             executiveCustomer2.setName("Richard Wellianto");
             executiveCustomer2.setLocation(location2);
@@ -189,7 +130,7 @@ public class Insert {
           em.getTransaction().commit();
           //RegularCustomer
           em.getTransaction().begin();
-            RegularCustomer regularCustomer1 = new RegularCustomer(iDCard3);
+            Customer regularCustomer1 = new Customer(iDCard3);
             regularCustomer1.setBirthDate(new Date(86, 6, 20));
             regularCustomer1.setName("Hafizh Dary F.H.");
             regularCustomer1.setLocation(location3);
@@ -199,7 +140,7 @@ public class Insert {
             em.persist(regularCustomer1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            RegularCustomer regularCustomer2 = new RegularCustomer(iDCard4);
+            Customer regularCustomer2 = new Customer(iDCard4);
             regularCustomer2.setBirthDate(new Date(89, 6, 1));
             regularCustomer2.setName("Ahmad Sena M.S.");
             regularCustomer2.setLocation(location4);
@@ -208,7 +149,7 @@ public class Insert {
             em.persist(regularCustomer2);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            RegularCustomer regularCustomer3 = new RegularCustomer(iDCard5);
+            Customer regularCustomer3 = new Customer(iDCard5);
             regularCustomer3.setBirthDate(new Date(45, 8, 17));
             regularCustomer3.setName("Agus");
             regularCustomer3.setLocation(location5);
@@ -218,7 +159,7 @@ public class Insert {
           em.getTransaction().commit();
           //HQ
           em.getTransaction().begin();
-            HQ hq1 = new HQ("HQ-001");
+            Branch hq1 = new Branch("HQ-001");
             hq1.setName("HeadQuarter");
             hq1.setLocation(location6);
             hq1.setArea(2000);
@@ -226,14 +167,14 @@ public class Insert {
           em.getTransaction().commit();
           //NonHQ
           em.getTransaction().begin();
-            NonHQ nonhq1 = new NonHQ("NHQ-001");
+            Branch nonhq1 = new Branch("NHQ-001");
             nonhq1.setName("Kantor Cabang Cisitu");
             nonhq1.setLocation(location7);
             nonhq1.setArea(500);
             em.persist(nonhq1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            NonHQ nonhq2 = new NonHQ("NHQ-002");
+            Branch nonhq2 = new Branch("NHQ-002");
             nonhq2.setName("Kantor Cabang Kopo");
             nonhq2.setLocation(location8);
             nonhq2.setArea(1000);
@@ -345,13 +286,6 @@ public class Insert {
             goodinbranch5.setStoredGood(good3);
             goodinbranch5.setStoringPlace(nonhq1);
             em.persist(goodinbranch5);
-          em.getTransaction().commit();
-          //Component
-          em.getTransaction().begin();
-            Component component1 = new Component();
-            component1.setComponent(good3);
-            component1.setQuantityNeeded(2);
-            em.persist(component1);
           em.getTransaction().commit();
         //Section 5 Order
           //Order
@@ -493,7 +427,6 @@ public class Insert {
             em.persist(good1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            good2.addComponent(component1);
             good2.addStoringPlace(goodinbranch3);
             good2.addStoringPlace(goodinbranch4);
             em.persist(good2);
@@ -525,7 +458,6 @@ public class Insert {
           em.getTransaction().commit();
         //Section 6 OrderQty
           //OrderQty
-
       em.close();
     emf.close();
   }

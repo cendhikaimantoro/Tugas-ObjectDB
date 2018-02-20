@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -41,7 +42,7 @@ public class Order implements Serializable{
   
   //TODO attribute set<OrderQty> orderedGood; + SETTER + GETTER
   @OneToMany
-  private HashSet<OrderQty> orderedGood;
+  private Set<OrderQty> orderedGood;
 
   @ManyToOne
   private Employee handler;
@@ -116,6 +117,6 @@ public class Order implements Serializable{
   }
   
   public HashSet<OrderQty> getOrderedGood() {
-    return orderedGood;
+    return (HashSet) orderedGood;
   }
 }

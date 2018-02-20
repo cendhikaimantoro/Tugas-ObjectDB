@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -25,7 +26,7 @@ public class Employee implements Serializable{
   
   @OneToOne
   private Location location;
-  private HashSet<String> phoneNumber;
+  private Set<String> phoneNumber;
   
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date startingDate;
@@ -44,10 +45,10 @@ public class Employee implements Serializable{
   private Branch workplace;
   
   @OneToMany(mappedBy="handler")
-  private HashSet<Order> handledOrder;
+  private Set<Order> handledOrder;
   
   @OneToMany(mappedBy="consultant")
-  private HashSet<ExecutiveCustomer> consultedCustomer;
+  private Set<Customer> consultedCustomer;
   
   public Employee(){
     this.phoneNumber = new HashSet<>();
@@ -94,7 +95,7 @@ public class Employee implements Serializable{
   }
   
   public HashSet<String> getPhoneNumber() {
-    return phoneNumber;
+    return (HashSet) phoneNumber;
   }
   
   public void setStartingDate(Date startingDate){
@@ -141,23 +142,23 @@ public class Employee implements Serializable{
   }
   
   public HashSet<Order> getHandledOrder(){
-    return handledOrder;
+    return (HashSet) handledOrder;
   }
   
-  public void setConsultedCustomer(HashSet<ExecutiveCustomer> consultedCustomer){
+  public void setConsultedCustomer(HashSet<Customer> consultedCustomer){
     this.consultedCustomer = consultedCustomer;
   }
   
-  public void addConsultedCustomer(ExecutiveCustomer consultedCustomer){
+  public void addConsultedCustomer(Customer consultedCustomer){
     this.consultedCustomer.add(consultedCustomer);
   }
   
-  public void delConsultedCustomer(ExecutiveCustomer consultedCustomer){
+  public void delConsultedCustomer(Customer consultedCustomer){
     this.consultedCustomer.remove(consultedCustomer);
   }
   
-  public HashSet<ExecutiveCustomer> getConsultedCustomer(){
-    return consultedCustomer;
+  public HashSet<Customer> getConsultedCustomer(){
+    return (HashSet) consultedCustomer;
   }
         
 }

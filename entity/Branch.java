@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -27,23 +28,45 @@ public class Branch implements Serializable{
   private int area;
   
   @OneToMany(mappedBy="registrationBranch")
-  private HashSet<Customer> registeredCustomer;
+  private Set<Customer> registeredCustomer;
   
   @OneToMany(mappedBy="orderPlace")
-  private HashSet<Order> placedOrder;
+  private Set<Order> placedOrder;
   
   @OneToMany(mappedBy="workplace")
-  private HashSet<Employee> worker;
+  private Set<Employee> worker;
+  
+  @OneToMany(mappedBy="storingPlace")
+  private Set<GoodInBranch> storedGood;
+  
+  public void setStoredGood(HashSet<GoodInBranch> storedGood){
+    this.storedGood = storedGood;
+  }
+  
+  public void addStoredGood(GoodInBranch storedGood){
+    this.storedGood.add(storedGood);
+  }
+  public void delStoredGood(GoodInBranch storedGood){
+    this.storedGood.remove(storedGood);
+  }
+  
+  public HashSet<GoodInBranch> getStoredGood(){
+    return (HashSet) storedGood;
+  }
   
   public Branch(){
     this.registeredCustomer = new HashSet<>();
+    this.placedOrder = new HashSet<>();
     this.worker = new HashSet<>();
+    this.storedGood = new HashSet<>();
   }
   
   public Branch(String id){
     this.id = id;
     this.registeredCustomer = new HashSet<>();
+    this.placedOrder = new HashSet<>();
     this.worker = new HashSet<>();
+    this.storedGood = new HashSet<>();
   }
   
   public String getID(){
@@ -86,7 +109,7 @@ public class Branch implements Serializable{
   }
   
   public HashSet<Customer> getCustomer(){
-    return registeredCustomer;
+    return (HashSet) registeredCustomer;
   }
   
   public void setPlacedOrder(HashSet<Order> placedOrder){
@@ -101,7 +124,7 @@ public class Branch implements Serializable{
   }
   
   public HashSet<Order> getPlacedOrder(){
-    return placedOrder;
+    return (HashSet) placedOrder;
   }
   
   public void setWorker(HashSet<Employee> worker){
@@ -116,7 +139,7 @@ public class Branch implements Serializable{
   }
   
   public HashSet<Employee> getWorker(){
-    return worker;
+    return (HashSet) worker;
   }
   
 }

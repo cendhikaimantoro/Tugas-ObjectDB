@@ -26,7 +26,7 @@ public class GoodInBranch implements Serializable{
   private Good storedGood;
   
   @ManyToOne
-  private NonHQ storingPlace;
+  private Branch storingPlace;
   
   public GoodInBranch() {
     
@@ -48,11 +48,11 @@ public class GoodInBranch implements Serializable{
     return storedGood;
   }
   
-  public void setStoringPlace(NonHQ storingPlace) {
+  public void setStoringPlace(Branch storingPlace) {
     this.storingPlace = storingPlace;
   }
   
-  public NonHQ getStoringPlace () {
+  public Branch getStoringPlace () {
     return storingPlace;
   }
   

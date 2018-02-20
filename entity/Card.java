@@ -8,6 +8,7 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 /**
@@ -37,14 +38,15 @@ public class Card implements Serializable {
   private Date expirationDate;
   
   @OneToMany(mappedBy="usedCard")
-  private HashSet<Order> paidOrder;
+  private Set<Order> paidOrder;
     
   public Card(){
-  
+    this.paidOrder = new HashSet<>();
   }
   
   public Card(String number){
     this.number = number;
+    this.paidOrder = new HashSet<>();
   }
   
   public String getNumber(){
@@ -103,7 +105,7 @@ public class Card implements Serializable {
   }
   
   public HashSet<Order> getPaidOrder(){
-    return paidOrder;
+    return (HashSet) paidOrder;
   }
   
 }

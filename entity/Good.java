@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 
 
@@ -26,20 +27,16 @@ public class Good implements Serializable{
   private String type;
   private int quantity;
   
-  @OneToMany
-  private HashSet<Component> component;
   
   @OneToMany(mappedBy="storedGood")
-  private HashSet<GoodInBranch> storingPlace;
+  private Set<GoodInBranch> storingPlace;
   
   public Good() {
-    component = new HashSet<>();
     storingPlace = new HashSet<>();
   }
   
   public Good(String id) {
     this.id = id;
-    component = new HashSet<>();
     storingPlace = new HashSet<>();
   }  
   
@@ -87,22 +84,6 @@ public class Good implements Serializable{
     return quantity;
   }
   
-  public void setComponent(HashSet<Component> component) {
-    this.component = component;
-  }
-  
-  public void addComponent(Component component) {
-    this.component.add(component);
-  }
-  
-  public void delComponent(Component component) {
-    this.component.remove(component);
-  }
-  
-  public HashSet<Component> getComponent() {
-    return component;
-  }
-  
   public void setStoringPlace(HashSet<GoodInBranch> storingPlace) {
     this.storingPlace = storingPlace;
   }
@@ -116,6 +97,6 @@ public class Good implements Serializable{
   }
   
   public HashSet<GoodInBranch> getStoringPlace() {
-    return storingPlace;
+    return (HashSet) storingPlace;
   }
 }
