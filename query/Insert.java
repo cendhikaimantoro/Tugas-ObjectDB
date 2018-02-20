@@ -104,7 +104,46 @@ public class Insert {
       
         //Section 1 Location, IDCard
           //Location
-          
+          em.getTransaction().begin();
+            Location location1 = new Location("Cisitu Baru 13", "Bandung", "Jawa Barat", "40135");
+            em.persist(location1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location2 = new Location("Otista 352", "Bandung", "Jawa Barat", "40123");
+            em.persist(location2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location3 = new Location("Kebon Jati 20", "Bandung", "Jawa Barat", "40111");
+            em.persist(location3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location4 = new Location("Ginza 203", "Tokyo", "Tokyo", "Z-235");
+            em.persist(location4);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location5 = new Location("S.A.Maulana 34", "Berau", "Kalimantan Timur", "77312");
+            em.persist(location5);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location6 = new Location("Naripan 32", "Bandung", "Jawa Barat", "40115");
+            em.persist(location6);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location7 = new Location("Cisitu Baru 50", "Bandung", "Jawa Barat", "40135");
+            em.persist(location7);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location8 = new Location("Kopo 234", "Bandung", "Jawa Barat", "40114");
+            em.persist(location8);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location9 = new Location("Soekarno Hatta 23", "Pekanbaru", "Riau", "23452");
+            em.persist(location9);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Location location10 = new Location("Imam Bonjol 23", "Padang", "Sumatera Barat", "42666");
+            em.persist(location10);
+          em.getTransaction().commit();
           //IDCard
           
         //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
