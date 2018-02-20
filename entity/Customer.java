@@ -31,27 +31,25 @@ public class Customer implements Serializable{
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date birthDate;
   
-  //TODO attribute set<Card> Card; + SETTER + GETTER
-  
   @OneToMany
   private HashSet<Card> card;  
   
   @ManyToOne
   private Branch registrationBranch;
   
-  //TODO relationship set<Order> issuedOrder inverse Order::customer; + SETTER + GETTER
-  //private HashSet<Order> issuedOrder;
+  @OneToMany
+  private HashSet<Order> issuedOrder;
   
   public Customer() {
     phoneNumber = new HashSet<>();
     card = new HashSet<>();
-    //issuedOrder = new HashSet<>();
+    issuedOrder = new HashSet<>();
   }
   
   public Customer(IDCard id) {
     this.phoneNumber = new HashSet<>();
     card = new HashSet<>();
-    //issuedOrder = new HashSet<>();
+    issuedOrder = new HashSet<>();
     this.id = id;
   }
   
@@ -125,5 +123,20 @@ public class Customer implements Serializable{
   
   public Branch getBranch(){
     return registrationBranch;
+  }
+  
+  public void setIssuedOrder(HashSet<Order> issuedOrder) {
+    this.issuedOrder = issuedOrder;
+  }
+  
+  public void addIssuedOrder(Order issuedOrder) {
+    this.issuedOrder.add(issuedOrder);
+  }
+  public void delIssuedOrder(Order issuedOrder) {
+    this.issuedOrder.remove(issuedOrder);
+  }
+  
+  public HashSet<Order> getIssuedOrder() {
+    return issuedOrder;
   }
 }
