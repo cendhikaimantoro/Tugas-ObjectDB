@@ -294,7 +294,41 @@ public class Insert {
           em.getTransaction().commit();
         //Section 4 GoodInBranch Component
           //GoodInBranch
-          
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch1 = new GoodInBranch();
+            goodinbranch1.setGoodQuantity(2);
+            goodinbranch1.setStoredGood(good3);
+            goodinbranch1.setStoringPlace(nonhq2);
+            em.persist(goodinbranch1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch2 = new GoodInBranch();
+            goodinbranch2.setGoodQuantity(3);
+            goodinbranch2.setStoredGood(good1);
+            goodinbranch2.setStoringPlace(nonhq1);
+            em.persist(goodinbranch2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch3 = new GoodInBranch();
+            goodinbranch3.setGoodQuantity(1);
+            goodinbranch3.setStoredGood(good2);
+            goodinbranch3.setStoringPlace(nonhq1);
+            em.persist(goodinbranch3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch4 = new GoodInBranch();
+            goodinbranch4.setGoodQuantity(1);
+            goodinbranch4.setStoredGood(good2);
+            goodinbranch4.setStoringPlace(nonhq2);
+            em.persist(goodinbranch4);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch5 = new GoodInBranch();
+            goodinbranch5.setGoodQuantity(1);
+            goodinbranch5.setStoredGood(good3);
+            goodinbranch5.setStoringPlace(nonhq1);
+            em.persist(goodinbranch5);
+          em.getTransaction().commit();
           //Component
           
         //Section 5 Order
