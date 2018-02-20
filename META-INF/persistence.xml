@@ -11,8 +11,10 @@
     <class>entity.ExecutiveCustomer</class>
     <class>entity.Good</class>
     <class>entity.GoodInBranch</class>
+    <class>entity.HQ</class>
     <class>entity.IDCard</class>
     <class>entity.Location</class>
+    <class>entity.NonHQ</class>
     <class>entity.Order</class>
     <class>entity.RegularCustomer</class>
     <properties>

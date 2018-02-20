@@ -40,16 +40,20 @@ public class Delete {
       EntityManager em = emf.createEntityManager();  
       
         em.getTransaction().begin();
-          em.createQuery("DELETE FROM entity.Customer").executeUpdate();
-          em.createQuery("DELETE FROM entity.IDCard").executeUpdate();
-          em.createQuery("DELETE FROM entity.Location").executeUpdate();
+          em.createQuery("DELETE FROM entity.Branch").executeUpdate();
           em.createQuery("DELETE FROM entity.Card").executeUpdate();
+          em.createQuery("DELETE FROM entity.Component").executeUpdate();
+          em.createQuery("DELETE FROM entity.Customer").executeUpdate();
           em.createQuery("DELETE FROM entity.Employee").executeUpdate();
-          em.createQuery("DELETE FROM entity.RegularCustomer").executeUpdate();
           em.createQuery("DELETE FROM entity.ExecutiveCustomer").executeUpdate();
           em.createQuery("DELETE FROM entity.Good").executeUpdate();
-          em.createQuery("DELETE FROM entity.Component").executeUpdate();
           em.createQuery("DELETE FROM entity.GoodInBranch").executeUpdate();
+          em.createQuery("DELETE FROM entity.HQ").executeUpdate();
+          em.createQuery("DELETE FROM entity.IDCard").executeUpdate();
+          em.createQuery("DELETE FROM entity.Location").executeUpdate();
+          em.createQuery("DELETE FROM entity.NonHQ").executeUpdate();
+          em.createQuery("DELETE FROM entity.Order").executeUpdate();
+          em.createQuery("DELETE FROM entity.RegularCustomer").executeUpdate();
         em.getTransaction().commit();
 
       em.close();

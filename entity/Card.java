@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import javax.persistence.*;
 
 /**
@@ -35,8 +36,8 @@ public class Card implements Serializable {
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date expirationDate;
   
-  //TODO relationship set<Order> paidOrder inverse Order::usedCard; + SETTER + GETTER
-  //private HashSet<Order> paidOrder;
+  @OneToMany
+  private HashSet<Order> paidOrder;
     
   public Card(){
   
@@ -88,6 +89,21 @@ public class Card implements Serializable {
   
   public Date getExpirationDate(){
     return expirationDate;
+  }
+  
+  public void setPaidOrder(HashSet<Order> paidOrder){
+    this.paidOrder = paidOrder;
+  }
+  
+  public void addPaidOrder(Order paidOrder){
+    this.paidOrder.add(paidOrder);
+  }
+  public void delPaidOrder(Order paidOrder){
+    this.paidOrder.remove(paidOrder);
+  }
+  
+  public HashSet<Order> getPaidOrder(){
+    return paidOrder;
   }
   
 }
