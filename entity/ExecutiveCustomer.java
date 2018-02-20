@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -18,6 +19,8 @@ public class ExecutiveCustomer extends Customer implements Serializable {
   private static final long serialVersionUID = 1L;
   
   private float discount;
+  
+  @ManyToOne
   private Employee consultant;
   
   public ExecutiveCustomer() {
@@ -38,7 +41,7 @@ public class ExecutiveCustomer extends Customer implements Serializable {
     return this.discount;
   }
   
-  public void setManager(Employee consultant) {
+  public void setConsultant(Employee consultant) {
     this.consultant = consultant;
   }
   

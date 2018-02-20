@@ -8,41 +8,40 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  *
  * @author ASUS-A451LB
  */
 @Entity
-public class Component implements Serializable{
+public class OrderQty implements Serializable{
   private static final long serialVersionUID = 1L;
   
   @Id @GeneratedValue
   private long uid;
   
+  private int quantity;
+  
   @ManyToOne
-  private Good component;
+  private Good orderedGood;
   
-  private int quantityNeeded;
-  
-  public Component() {
+  public OrderQty() {
     
   }
   
-  public void setComponent(Good component) {
-    this.component = component;
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
   }
   
-  public Good getComponent () {
-    return component;
+  public int getQuantity () {
+    return quantity;
   }
   
-  public void setQuantityNeeded(int quantityNeeded) {
-    this.quantityNeeded = quantityNeeded;
+  public void setOrderedGood(Good orderedGood) {
+    this.orderedGood = orderedGood;
   }
   
-  public int getQuantityNeeded () {
-    return quantityNeeded;
+  public Good getOrderedGood () {
+    return orderedGood;
   }
   
 }
