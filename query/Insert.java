@@ -382,6 +382,229 @@ public class Insert {
             orderqty4.setQuantity(2);
             em.persist(orderqty4);
           em.getTransaction().commit();
+        
+          ///////////////PART 2
+        //Section 1 Location, IDCard
+          //Location
+          
+          //IDCard
+          
+        //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
+          //ExecutiveCustomer
+          em.getTransaction().begin();
+            ExecutiveCustomer executiveCustomer1 = new ExecutiveCustomer(iDCard1);
+            executiveCustomer1.setBirthDate(new Date(96, 05, 17));
+            executiveCustomer1.setName("Cendhika Imantoro");
+            executiveCustomer1.setLocation(location1);
+            executiveCustomer1.addPhoneNumber("085731330212");
+            executiveCustomer1.addPhoneNumber("085755190017");
+            executiveCustomer1.setDiscount(0.2f);
+            em.persist(executiveCustomer1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            ExecutiveCustomer executiveCustomer2 = new ExecutiveCustomer(iDCard2);
+            executiveCustomer2.setBirthDate(new Date(97, 11, 24));
+            executiveCustomer2.setName("Richard Wellianto");
+            executiveCustomer2.setLocation(location2);
+            executiveCustomer2.addPhoneNumber("082874638462");
+            executiveCustomer2.setDiscount(0.15f);
+            em.persist(executiveCustomer2);
+          em.getTransaction().commit();
+          //RegularCustomer
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer1 = new RegularCustomer(iDCard3);
+            regularCustomer1.setBirthDate(new Date(86, 6, 20));
+            regularCustomer1.setName("Hafizh Dary F.H.");
+            regularCustomer1.setLocation(location3);
+            regularCustomer1.addPhoneNumber("085783665947");
+            regularCustomer1.addPhoneNumber("085694385926");
+            regularCustomer1.setPoint(100);
+            em.persist(regularCustomer1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer2 = new RegularCustomer(iDCard4);
+            regularCustomer2.setBirthDate(new Date(89, 6, 1));
+            regularCustomer2.setName("Ahmad Sena M.S.");
+            regularCustomer2.setLocation(location4);
+            regularCustomer2.addPhoneNumber("088848569502");
+            regularCustomer2.setPoint(150);
+            em.persist(regularCustomer2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer3 = new RegularCustomer(iDCard5);
+            regularCustomer3.setBirthDate(new Date(45, 8, 17));
+            regularCustomer3.setName("Agus");
+            regularCustomer3.setLocation(location5);
+            regularCustomer3.addPhoneNumber("082843729473");
+            regularCustomer3.setPoint(200);
+            em.persist(regularCustomer3);
+          em.getTransaction().commit();
+          //HQ
+          em.getTransaction().begin();
+            HQ hq1 = new HQ("HQ-001");
+            hq1.setName("HeadQuarter");
+            hq1.setLocation(location6);
+            hq1.setArea(2000);
+            em.persist(hq1);
+          em.getTransaction().commit();
+          //NonHQ
+          em.getTransaction().begin();
+            NonHQ nonhq1 = new NonHQ("NHQ-001");
+            nonhq1.setName("Kantor Cabang Cisitu");
+            nonhq1.setLocation(location7);
+            nonhq1.setArea(500);
+            em.persist(nonhq1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            NonHQ nonhq2 = new NonHQ("NHQ-002");
+            nonhq2.setName("Kantor Cabang Kopo");
+            nonhq2.setLocation(location8);
+            nonhq2.setArea(1000);
+            em.persist(nonhq2);
+          em.getTransaction().commit();
+          //Employee
+          em.getTransaction().begin();
+            Employee employee1 = new Employee("01-2014-03-05-01");
+            employee1.setName("Ujang");
+            employee1.setLocation(location9);
+            employee1.addPhoneNumber("081345471223");
+            employee1.setStartingDate(new Date(114, 5, 3));
+            employee1.setBaseSalary(1500000);
+            employee1.setBirthDate(new Date(80, 11, 13));
+            em.persist(employee1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Employee employee2 = new Employee("02-2016-04-07-01");
+            employee2.setName("Bonar");
+            employee2.setLocation(location10);
+            employee2.addPhoneNumber("082345729234");
+            employee2.addPhoneNumber("081723450293");
+            employee2.setStartingDate(new Date(116, 4, 7));
+            employee2.setBaseSalary(2500000);
+            employee2.setBirthDate(new Date(89, 10, 26));
+            em.persist(employee2);
+          em.getTransaction().commit();
+        //Section 3 Card, Good
+          //Card
+          em.getTransaction().begin();
+            Card card1 = new Card("1673894562789");
+            card1.setBank("BNI");
+            card1.setType(Card.Type.credit);
+            card1.setLastTransactionDate(new Date(117,12, 29));
+            card1.setTotalTransaction(1000000);
+            card1.setExpirationDate(new Date(118,10, 30));
+            em.persist(card1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Card card2 = new Card("3739473759302");
+            card2.setBank("BCA");
+            card2.setType(Card.Type.debit);
+            card2.setLastTransactionDate(new Date(118,2, 5));
+            card2.setTotalTransaction(165000);
+            card2.setExpirationDate(new Date(120,5, 31));
+            em.persist(card2);
+          em.getTransaction().commit();
+          //Good
+          em.getTransaction().begin();
+            Good good1 = new Good("Cl-001");
+            good1.setDescription("Kagura's Clothes");
+            good1.setColor("Red");
+            good1.setSize("32AA");
+            good1.setType("Clothing");
+            good1.setQuantity(5);
+            em.persist(good1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Good good2 = new Good("Sw-001");
+            good2.setDescription("Gintoki's Bouken");
+            good2.setColor("Brown");
+            good2.setSize("70cm");
+            good2.setType("Sword");
+            good2.setQuantity(2);
+            em.persist(good2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Good good3 = new Good("Ac-001");
+            good3.setDescription("Shinpachi's Glasses");
+            good3.setColor("Silver");
+            good3.setSize("-4.50");
+            good3.setType("Accessory");
+            good3.setQuantity(7);
+            em.persist(good3);
+          em.getTransaction().commit();
+        //Section 4 GoodInBranch Component
+          //GoodInBranch
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch1 = new GoodInBranch();
+            goodinbranch1.setGoodQuantity(2);
+            goodinbranch1.setStoredGood(good3);
+            goodinbranch1.setStoringPlace(nonhq2);
+            em.persist(goodinbranch1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch2 = new GoodInBranch();
+            goodinbranch2.setGoodQuantity(3);
+            goodinbranch2.setStoredGood(good1);
+            goodinbranch2.setStoringPlace(nonhq1);
+            em.persist(goodinbranch2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch3 = new GoodInBranch();
+            goodinbranch3.setGoodQuantity(1);
+            goodinbranch3.setStoredGood(good2);
+            goodinbranch3.setStoringPlace(nonhq1);
+            em.persist(goodinbranch3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch4 = new GoodInBranch();
+            goodinbranch4.setGoodQuantity(1);
+            goodinbranch4.setStoredGood(good2);
+            goodinbranch4.setStoringPlace(nonhq2);
+            em.persist(goodinbranch4);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            GoodInBranch goodinbranch5 = new GoodInBranch();
+            goodinbranch5.setGoodQuantity(1);
+            goodinbranch5.setStoredGood(good3);
+            goodinbranch5.setStoringPlace(nonhq1);
+            em.persist(goodinbranch5);
+          em.getTransaction().commit();
+          //Component
+          em.getTransaction().begin();
+            Component component1 = new Component();
+            component1.setComponent(good3);
+            component1.setQuantityNeeded(2);
+            em.persist(component1);
+          em.getTransaction().commit();
+        //Section 5 Order
+          //Order
+          
+        //Section 6 OrderQty
+          //OrderQty
+          em.getTransaction().begin();
+            OrderQty orderqty1 = new OrderQty();
+            orderqty1.setOrderedGood(good3);
+            orderqty1.setQuantity(1);
+            em.persist(orderqty1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty2 = new OrderQty();
+            orderqty2.setOrderedGood(good2);
+            orderqty2.setQuantity(1);
+            em.persist(orderqty2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty3 = new OrderQty();
+            orderqty3.setOrderedGood(good1);
+            orderqty3.setQuantity(2);
+            em.persist(orderqty3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty4 = new OrderQty();
+            orderqty4.setOrderedGood(good1);
+            orderqty4.setQuantity(2);
+            em.persist(orderqty4);
+          em.getTransaction().commit();
       em.close();
     emf.close();
   }
