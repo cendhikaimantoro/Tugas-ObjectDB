@@ -121,8 +121,26 @@ public class Insert {
           
         //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
           //ExecutiveCustomer
-          
+          em.getTransaction().begin();
+            ExecutiveCustomer executiveCustomer1 = new ExecutiveCustomer(iDCard1);
+            executiveCustomer1.setBirthDate(new Date(96, 05, 17));
+            executiveCustomer1.setName("Cendhika Imantoro");
+            executiveCustomer1.setLocation(location1);
+            executiveCustomer1.addPhoneNumber("085731330212");
+            executiveCustomer1.addPhoneNumber("085755190017");
+            em.persist(executiveCustomer1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            ExecutiveCustomer executiveCustomer2 = new ExecutiveCustomer(iDCard1);
+            executiveCustomer2.setBirthDate(new Date(97, 11, 24));
+            executiveCustomer2.setName("Richard Wellianto");
+            executiveCustomer2.setLocation(location2);
+            executiveCustomer2.addPhoneNumber("082874638462");
+            em.persist(executiveCustomer2);
+          em.getTransaction().commit();
           //RegularCustomer
+          
+          
           
           //HQ
           
