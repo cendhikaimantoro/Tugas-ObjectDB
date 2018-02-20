@@ -349,7 +349,7 @@ public class Insert {
           //Component
           em.getTransaction().begin();
             Component component1 = new Component();
-            component1.setComponent(good2);
+            component1.setComponent(good3);
             component1.setQuantityNeeded(2);
             em.persist(component1);
           em.getTransaction().commit();
@@ -382,7 +382,30 @@ public class Insert {
           em.getTransaction().commit();
         //Section 6 OrderQty
           //OrderQty
-          
+          em.getTransaction().begin();
+            OrderQty orderqty1 = new OrderQty();
+            orderqty1.setOrderedGood(good3);
+            orderqty1.setQuantity(1);
+            em.persist(orderqty1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty2 = new OrderQty();
+            orderqty2.setOrderedGood(good2);
+            orderqty2.setQuantity(1);
+            em.persist(orderqty2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty3 = new OrderQty();
+            orderqty3.setOrderedGood(good1);
+            orderqty3.setQuantity(2);
+            em.persist(orderqty3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            OrderQty orderqty4 = new OrderQty();
+            orderqty4.setOrderedGood(good1);
+            orderqty4.setQuantity(2);
+            em.persist(orderqty4);
+          em.getTransaction().commit();
       em.close();
     emf.close();
   }
