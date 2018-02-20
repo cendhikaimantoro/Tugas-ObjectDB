@@ -40,7 +40,7 @@ public class Insert {
     
       EntityManager em = emf.createEntityManager();
       
-        em.getTransaction().begin();
+      /*  em.getTransaction().begin();
           Location locationc = new Location("Cisitu Baru 13", "Bandung", "Jawa Barat", "40135");
           em.persist(locationc);
         em.getTransaction().commit();
@@ -98,6 +98,42 @@ public class Insert {
           regularCustomer.addPhoneNumber("085731330212");
           em.persist(regularCustomer);
         em.getTransaction().commit();
+      
+        */
+      
+      
+        //Section 1 Location, IDCard
+          //Location
+          
+          //IDCard
+          
+        //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
+          //ExecutiveCustomer
+          
+          //RegularCustomer
+          
+          //HQ
+          
+          //NonHQ
+          
+          //Employee
+          
+        //Section 3 Card, Good
+          //Card
+          
+          //Good
+          
+        //Section 4 GoodInBranch Component
+          //GoodInBranch
+          
+          //Component
+          
+        //Section 5 Order
+          //Order
+          
+        //Section 6 OrderQty
+          //OrderQty
+          
       em.close();
     emf.close();
   }
