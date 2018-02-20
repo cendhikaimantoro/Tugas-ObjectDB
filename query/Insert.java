@@ -148,12 +148,20 @@ public class Insert {
           em.getTransaction().begin();
             IDCard iDCard1 = new IDCard("3573011705960001", "KTP");
             em.persist(iDCard1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
             IDCard iDCard2 = new IDCard("153753575947", "SIM");
             em.persist(iDCard2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
             IDCard iDCard3 = new IDCard("18463805074956", "PASSPORT");
             em.persist(iDCard3);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
             IDCard iDCard4 = new IDCard("3475010819880004", "KTP");
             em.persist(iDCard4);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
             IDCard iDCard5 = new IDCard("3456011804900005", "KTP");
             em.persist(iDCard5);
           em.getTransaction().commit();
@@ -167,20 +175,47 @@ public class Insert {
             executiveCustomer1.setLocation(location1);
             executiveCustomer1.addPhoneNumber("085731330212");
             executiveCustomer1.addPhoneNumber("085755190017");
+            executiveCustomer1.setDiscount(0.2f);
             em.persist(executiveCustomer1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            ExecutiveCustomer executiveCustomer2 = new ExecutiveCustomer(iDCard1);
+            ExecutiveCustomer executiveCustomer2 = new ExecutiveCustomer(iDCard2);
             executiveCustomer2.setBirthDate(new Date(97, 11, 24));
             executiveCustomer2.setName("Richard Wellianto");
             executiveCustomer2.setLocation(location2);
             executiveCustomer2.addPhoneNumber("082874638462");
+            executiveCustomer2.setDiscount(0.15f);
             em.persist(executiveCustomer2);
           em.getTransaction().commit();
           //RegularCustomer
-          
-          
-          
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer1 = new RegularCustomer(iDCard3);
+            regularCustomer1.setBirthDate(new Date(86, 6, 20));
+            regularCustomer1.setName("Hafizh Dary F.H.");
+            regularCustomer1.setLocation(location3);
+            regularCustomer1.addPhoneNumber("085783665947");
+            regularCustomer1.addPhoneNumber("085694385926");
+            regularCustomer1.setPoint(100);
+            em.persist(regularCustomer1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer2 = new RegularCustomer(iDCard4);
+            regularCustomer2.setBirthDate(new Date(89, 6, 1));
+            regularCustomer2.setName("Ahmad Sena M.S.");
+            regularCustomer2.setLocation(location4);
+            regularCustomer2.addPhoneNumber("088848569502");
+            regularCustomer2.setPoint(150);
+            em.persist(regularCustomer2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            RegularCustomer regularCustomer3 = new RegularCustomer(iDCard5);
+            regularCustomer3.setBirthDate(new Date(45, 8, 17));
+            regularCustomer3.setName("Agus");
+            regularCustomer3.setLocation(location5);
+            regularCustomer3.addPhoneNumber("082843729473");
+            regularCustomer3.setPoint(200);
+            em.persist(regularCustomer3);
+          em.getTransaction().commit();
           //HQ
           em.getTransaction().begin();
             HQ hq1 = new HQ("HQ-001");
