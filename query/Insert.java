@@ -106,6 +106,18 @@ public class Insert {
           //Location
           
           //IDCard
+          em.getTransaction().begin();
+            IDCard iDCard1 = new IDCard("3573011705960001", "KTP");
+            em.persist(iDCard1);
+            IDCard iDCard2 = new IDCard("153753575947", "SIM");
+            em.persist(iDCard2);
+            IDCard iDCard3 = new IDCard("18463805074956", "PASSPORT");
+            em.persist(iDCard3);
+            IDCard iDCard4 = new IDCard("3475010819880004", "KTP");
+            em.persist(iDCard4);
+            IDCard iDCard5 = new IDCard("3456011804900005", "KTP");
+            em.persist(iDCard5);
+          em.getTransaction().commit();
           
         //Section 2 ExecutiveCustomer, RegularCustomer, HQ, NonHQ, Employee
           //ExecutiveCustomer
