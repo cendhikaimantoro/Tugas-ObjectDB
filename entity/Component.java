@@ -20,7 +20,7 @@ public class Component implements Serializable{
   @Id @GeneratedValue
   private long uid;
   
-  @ManyToOne
+  @OneToOne
   private Good component;
   
   private int quantityNeeded;

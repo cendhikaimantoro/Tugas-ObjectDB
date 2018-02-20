@@ -43,22 +43,22 @@ public class Employee implements Serializable{
   @ManyToOne
   private Branch workplace;
   
-  //TODO relationship set<Order> handledOrder inverse Order::handler; + SETTER + GETTER
-  //private HashSet<Order> handledOrder;
+  @OneToMany(mappedBy="handler")
+  private HashSet<Order> handledOrder;
   
-  @OneToMany
+  @OneToMany(mappedBy="consultant")
   private HashSet<ExecutiveCustomer> consultedCustomer;
   
   public Employee(){
     this.phoneNumber = new HashSet<>();
-    //this.handledOrder = new HashSet<>();
+    this.handledOrder = new HashSet<>();
     this.consultedCustomer = new HashSet<>();
   }
   
   public Employee(String id){
     this.phoneNumber = new HashSet<>();
     this.id = id;
-    //this.handledOrder = new HashSet<>();
+    this.handledOrder = new HashSet<>();
     this.consultedCustomer = new HashSet<>();
   }
   
@@ -127,6 +127,21 @@ public class Employee implements Serializable{
     
   public Branch getBranch(){
     return workplace;
+  }
+  
+  public void setHandledOrder(HashSet<Order> handledOrder){
+    this.handledOrder = handledOrder;
+  }
+  
+  public void addHandledOrder(Order handledOrder){
+    this.handledOrder.add(handledOrder);
+  }
+  public void delHandledOrder(Order handledOrder){
+    this.handledOrder.remove(handledOrder);
+  }
+  
+  public HashSet<Order> getHandledOrder(){
+    return handledOrder;
   }
   
   public void setConsultedCustomer(HashSet<ExecutiveCustomer> consultedCustomer){

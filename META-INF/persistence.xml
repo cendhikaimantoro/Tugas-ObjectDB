@@ -16,9 +16,7 @@
     <class>entity.Location</class>
     <class>entity.NonHQ</class>
     <class>entity.Order</class>
-    <class>entity.OrderQty</class>
     <class>entity.RegularCustomer</class>
-    <class>entity.OrderQty</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="objectdb://localhost:6136/PDL.odb"/>
       <property name="javax.persistence.jdbc.user" value="admin"/>

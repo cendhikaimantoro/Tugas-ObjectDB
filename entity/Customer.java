@@ -37,7 +37,7 @@ public class Customer implements Serializable{
   @ManyToOne
   private Branch registrationBranch;
   
-  @OneToMany
+  @OneToMany(mappedBy="customer")
   private HashSet<Order> issuedOrder;
   
   public Customer() {

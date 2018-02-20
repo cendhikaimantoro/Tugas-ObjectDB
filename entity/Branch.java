@@ -26,13 +26,13 @@ public class Branch implements Serializable{
   private Location location;
   private int area;
   
-  @OneToMany
+  @OneToMany(mappedBy="registrationBranch")
   private HashSet<Customer> customer;
   
-  //TODO relationship set<Order> placedOrder inverse Order::orderPlace; + SETTER + GETTER
-  //private HashSet<Order> placedOrder;
+  @OneToMany(mappedBy="orderPlace")
+  private HashSet<Order> placedOrder;
   
-  @OneToMany
+  @OneToMany(mappedBy="workplace")
   private HashSet<Employee> worker;
   
   public Branch(){
@@ -87,6 +87,21 @@ public class Branch implements Serializable{
   
   public HashSet<Customer> getCustomer(){
     return customer;
+  }
+  
+  public void setPlacedOrder(HashSet<Order> placedOrder){
+    this.placedOrder = placedOrder;
+  }
+  
+  public void addPlacedOrder(Order placedOrder){
+    this.placedOrder.add(placedOrder);
+  }
+  public void delPlacedOrder(Order placedOrder){
+    this.placedOrder.remove(placedOrder);
+  }
+  
+  public HashSet<Order> getPlacedOrder(){
+    return placedOrder;
   }
   
   public void setWorker(HashSet<Employee> worker){
