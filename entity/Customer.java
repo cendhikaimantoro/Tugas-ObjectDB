@@ -36,8 +36,8 @@ public class Customer implements Serializable{
   @OneToMany
   private HashSet<Card> card;  
   
-  //TODO relationship Branch registrationBranch inverse Branch::registeredCustomer; + SETTER + GETTER
-  //private Branch registrationBranch;
+  @ManyToOne
+  private Branch registrationBranch;
   
   //TODO relationship set<Order> issuedOrder inverse Order::customer; + SETTER + GETTER
   //private HashSet<Order> issuedOrder;
@@ -119,4 +119,11 @@ public class Customer implements Serializable{
     return birthDate;
   } 
   
+  public void setBranch(Branch registrationBranch){
+    this.registrationBranch = registrationBranch;
+  }
+  
+  public Branch getBranch(){
+    return registrationBranch;
+  }
 }
