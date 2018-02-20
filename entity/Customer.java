@@ -21,22 +21,16 @@ public class Customer implements Serializable{
   
   @Id @OneToOne
   private IDCard id;
-  
   private String name;
-  
   @OneToOne
   private Location location;
   private HashSet<String> phoneNumber;
-  
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date birthDate;
-  
   @OneToMany
   private HashSet<Card> card;  
-  
   @ManyToOne
   private Branch registrationBranch;
-  
   @OneToMany(mappedBy="customer")
   private HashSet<Order> issuedOrder;
   
@@ -117,11 +111,11 @@ public class Customer implements Serializable{
     return birthDate;
   } 
   
-  public void setBranch(Branch registrationBranch){
+  public void setRegistrationBranch(Branch registrationBranch){
     this.registrationBranch = registrationBranch;
   }
   
-  public Branch getBranch(){
+  public Branch getRegistrationBranch(){
     return registrationBranch;
   }
   

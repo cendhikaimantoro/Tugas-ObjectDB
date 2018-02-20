@@ -27,7 +27,7 @@ public class Branch implements Serializable{
   private int area;
   
   @OneToMany(mappedBy="registrationBranch")
-  private HashSet<Customer> customer;
+  private HashSet<Customer> registeredCustomer;
   
   @OneToMany(mappedBy="orderPlace")
   private HashSet<Order> placedOrder;
@@ -36,13 +36,13 @@ public class Branch implements Serializable{
   private HashSet<Employee> worker;
   
   public Branch(){
-    this.customer = new HashSet<>();
+    this.registeredCustomer = new HashSet<>();
     this.worker = new HashSet<>();
   }
   
   public Branch(String id){
     this.id = id;
-    this.customer = new HashSet<>();
+    this.registeredCustomer = new HashSet<>();
     this.worker = new HashSet<>();
   }
   
@@ -75,18 +75,18 @@ public class Branch implements Serializable{
   }
   
   public void setCustomer(HashSet<Customer> customer){
-    this.customer = customer;
+    this.registeredCustomer = customer;
   }
   
-  public void addCustomeer(Customer customer){
-    this.customer.add(customer);
+  public void addCustomer(Customer customer){
+    this.registeredCustomer.add(customer);
   }
   public void delCustomer(Customer customer){
-    this.customer.add(customer);
+    this.registeredCustomer.add(customer);
   }
   
   public HashSet<Customer> getCustomer(){
-    return customer;
+    return registeredCustomer;
   }
   
   public void setPlacedOrder(HashSet<Order> placedOrder){

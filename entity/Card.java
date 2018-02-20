@@ -36,7 +36,7 @@ public class Card implements Serializable {
   @Temporal(javax.persistence.TemporalType.DATE)
   private Date expirationDate;
   
-  @OneToMany
+  @OneToMany(mappedBy="usedCard")
   private HashSet<Order> paidOrder;
     
   public Card(){

@@ -19,10 +19,11 @@ public class OrderQty implements Serializable{
   @Id @GeneratedValue
   private long uid;
   
-  private int quantity;
-  
   @ManyToOne
   private Good orderedGood;
+  private int quantity;
+  
+  
   
   public OrderQty() {
     

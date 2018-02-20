@@ -1,4 +1,4 @@
-/*
+  /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,8 +25,8 @@ public class GoodInBranch implements Serializable{
   @ManyToOne
   private Good storedGood;
   
-  //@ManyToOne
-  //private NonHQ storingPlace;
+  @ManyToOne
+  private NonHQ storingPlace;
   
   public GoodInBranch() {
     
@@ -48,12 +48,12 @@ public class GoodInBranch implements Serializable{
     return storedGood;
   }
   
-  //public void setStoringPlace(NonHQ storingPlace) {
-  //  this.storingPlace = storingPlace;
-  //}
+  public void setStoringPlace(NonHQ storingPlace) {
+    this.storingPlace = storingPlace;
+  }
   
-  //public NonHQ getStoringPlace () {
-  //  return storingPlace;
-  //}
+  public NonHQ getStoringPlace () {
+    return storingPlace;
+  }
   
 }

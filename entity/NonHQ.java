@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class NonHQ extends Branch implements Serializable{
   private static final long serialVersionUID = 1L;
   
-  @OneToMany
+  @OneToMany(mappedBy="storingPlace")
   private HashSet<GoodInBranch> storedGood;
   
   public NonHQ(){

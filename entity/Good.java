@@ -30,7 +30,7 @@ public class Good implements Serializable{
   @OneToMany
   private HashSet<Component> component;
   
-  @OneToMany
+  @OneToMany(mappedBy="storedGood")
   private HashSet<GoodInBranch> storingPlace;
   
   public Good() {

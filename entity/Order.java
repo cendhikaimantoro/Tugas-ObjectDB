@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import javax.persistence.*;
 
 /**
@@ -39,19 +40,20 @@ public class Order implements Serializable{
   private Branch orderPlace;
   
   //TODO attribute set<OrderQty> orderedGood; + SETTER + GETTER
-  //private HashSet<OrderQty> orderedGood;
+  @OneToMany
+  private HashSet<OrderQty> orderedGood;
 
   @ManyToOne
   private Employee handler;
   
   public Order(){
-    //this.orderedGood = new HashSet<>();
+    this.orderedGood = new HashSet<>();
   }
   
   public Order(String number, Branch orderPlace){
     this.number = number;
     this.orderPlace = orderPlace;
-    //this.orderedGood = new HashSet<>();
+    this.orderedGood = new HashSet<>();
   }
   
   public String getNumber(){
@@ -102,4 +104,18 @@ public class Order implements Serializable{
     return handler;
   }
   
+  public void setOrderedGood(HashSet<OrderQty> orderedGood) {
+    this.orderedGood = orderedGood;
+  }
+  
+  public void addOrderedGood(OrderQty orderedGood) {
+    this.orderedGood.add(orderedGood);
+  }
+  public void delOrderedGood(OrderQty orderedGood) {
+    this.orderedGood.remove(orderedGood);
+  }
+  
+  public HashSet<OrderQty> getOrderedGood() {
+    return orderedGood;
+  }
 }

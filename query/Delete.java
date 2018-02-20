@@ -53,6 +53,7 @@ public class Delete {
           em.createQuery("DELETE FROM entity.Location").executeUpdate();
           em.createQuery("DELETE FROM entity.NonHQ").executeUpdate();
           em.createQuery("DELETE FROM entity.Order").executeUpdate();
+          em.createQuery("DELETE FROM entity.OrderQty").executeUpdate();
           em.createQuery("DELETE FROM entity.RegularCustomer").executeUpdate();
         em.getTransaction().commit();
 
