@@ -50,6 +50,7 @@ public class Delete {
           em.createQuery("DELETE FROM entity.Good").executeUpdate();
           em.createQuery("DELETE FROM entity.Component").executeUpdate();
           em.createQuery("DELETE FROM entity.GoodInBranch").executeUpdate();
+          em.createQuery("DELETE FROM entity.OrderQty").executeUpdate();
         em.getTransaction().commit();
 
       em.close();
