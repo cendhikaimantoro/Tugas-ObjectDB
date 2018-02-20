@@ -184,7 +184,7 @@ public class Insert {
             executiveCustomer2.setName("Richard Wellianto");
             executiveCustomer2.setLocation(location2);
             executiveCustomer2.addPhoneNumber("082874638462");
-            executiveCustomer1.setDiscount(0.15f);
+            executiveCustomer2.setDiscount(0.15f);
             em.persist(executiveCustomer2);
           em.getTransaction().commit();
           //RegularCustomer
@@ -204,7 +204,7 @@ public class Insert {
             regularCustomer2.setName("Ahmad Sena M.S.");
             regularCustomer2.setLocation(location4);
             regularCustomer2.addPhoneNumber("088848569502");
-            regularCustomer1.setPoint(150);
+            regularCustomer2.setPoint(150);
             em.persist(regularCustomer2);
           em.getTransaction().commit();
           em.getTransaction().begin();
@@ -213,7 +213,7 @@ public class Insert {
             regularCustomer3.setName("Agus");
             regularCustomer3.setLocation(location5);
             regularCustomer3.addPhoneNumber("082843729473");
-            regularCustomer1.setPoint(200);
+            regularCustomer3.setPoint(200);
             em.persist(regularCustomer3);
           em.getTransaction().commit();
           //HQ
