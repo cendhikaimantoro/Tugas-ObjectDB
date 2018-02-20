@@ -164,9 +164,28 @@ public class Insert {
           //RegularCustomer
           
           //HQ
-          
+          em.getTransaction().begin();
+            HQ hq1 = new HQ("HQ-001");
+            hq1.setName("HeadQuarter");
+            hq1.setLocation(location6);
+            hq1.setArea(2000);
+            em.persist(hq1);
+          em.getTransaction().commit();
           //NonHQ
-          
+          em.getTransaction().begin();
+            NonHQ nonhq1 = new NonHQ("NHQ-001");
+            nonhq1.setName("Kantor Cabang Cisitu");
+            nonhq1.setLocation(location7);
+            nonhq1.setArea(500);
+            em.persist(nonhq1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            NonHQ nonhq2 = new NonHQ("NHQ-002");
+            nonhq2.setName("Kantor Cabang Kopo");
+            nonhq2.setLocation(location8);
+            nonhq2.setArea(1000);
+            em.persist(nonhq2);
+          em.getTransaction().commit();
           //Employee
           
         //Section 3 Card, Good
