@@ -183,7 +183,7 @@ public class Insert {
             executiveCustomer2.setBirthDate(new Date(97, 11, 24));
             executiveCustomer2.setName("Richard Wellianto");
             executiveCustomer2.setLocation(location2);
-            executiveCustomer2.addPhoneNumber("082874638462");
+            executiveCustomer2.addPho neNumber("082874638462");
             executiveCustomer2.setDiscount(0.15f);
             em.persist(executiveCustomer2);
           em.getTransaction().commit();
@@ -263,7 +263,24 @@ public class Insert {
           em.getTransaction().commit();
         //Section 3 Card, Good
           //Card
-          
+          em.getTransaction().begin();
+            Card card1 = new Card("1673894562789");
+            card1.setBank("BNI");
+            card1.setType(Card.Type.credit);
+            card1.setLastTransactionDate(new Date(117,12, 29));
+            card1.setTotalTransaction(1000000);
+            card1.setExpirationDate(new Date(118,10, 30));
+            em.persist(card1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Card card2 = new Card("3739473759302");
+            card2.setBank("BCA");
+            card2.setType(Card.Type.debit);
+            card2.setLastTransactionDate(new Date(118,2, 5));
+            card2.setTotalTransaction(165000);
+            card2.setExpirationDate(new Date(120,5, 31));
+            em.persist(card2);
+          em.getTransaction().commit();
           //Good
           em.getTransaction().begin();
             Good good1 = new Good("Cl-001");
@@ -330,7 +347,12 @@ public class Insert {
             em.persist(goodinbranch5);
           em.getTransaction().commit();
           //Component
-          
+          em.getTransaction().begin();
+            Component component1 = new Component();
+            component1.setComponent(good2);
+            component1.setQuantityNeeded(2);
+            em.persist(component1);
+          em.getTransaction().commit();
         //Section 5 Order
           //Order
           
