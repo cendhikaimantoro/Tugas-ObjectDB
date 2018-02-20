@@ -27,25 +27,21 @@ public class Good implements Serializable{
   private String type;
   private int quantity;
   
-  /*
   @OneToMany
   private HashSet<Component> component;
-  */
   
-  /*
-  @ManyToMany
+  @OneToMany
   private HashSet<GoodInBranch> storingPlace;
-  */
   
   public Good() {
-    //component = new HashSet<>();
-    //storingPlace = new HashSet<>();
+    component = new HashSet<>();
+    storingPlace = new HashSet<>();
   }
   
   public Good(String id) {
     this.id = id;
-    //component = new HashSet<>();
-    //storingPlace = new HashSet<>();
+    component = new HashSet<>();
+    storingPlace = new HashSet<>();
   }  
   
   public String getId() {
@@ -90,5 +86,37 @@ public class Good implements Serializable{
   
   public int getQuantity () {
     return quantity;
+  }
+  
+  public void setComponent(HashSet<Component> component) {
+    this.component = component;
+  }
+  
+  public void addComponent(Component component) {
+    this.component.add(component);
+  }
+  
+  public void delComponent(Component component) {
+    this.component.remove(component);
+  }
+  
+  public HashSet<Component> getComponent() {
+    return component;
+  }
+  
+  public void setStoringPlace(HashSet<GoodInBranch> storingPlace) {
+    this.storingPlace = storingPlace;
+  }
+  
+  public void addStoringPlace(GoodInBranch storingPlace) {
+    this.storingPlace.add(storingPlace);
+  }
+  
+  public void delStoringPlace(GoodInBranch storingPlace) {
+    this.storingPlace.remove(storingPlace);
+  }
+  
+  public HashSet<GoodInBranch> getStoringPlace() {
+    return storingPlace;
   }
 }
