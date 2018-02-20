@@ -39,14 +39,27 @@ public class Employee implements Serializable{
         Date age = new Date(ageMs);
         return age.getYear();
     };
+    
+    //TODO relationship Branch workplace inverse Branch::worker; + SETTER + GETTER
+    //private Branch workplace;
+    
+    //TODO relationship set<Order> handledOrder inverse Order::handler; + SETTER + GETTER
+    //private HashSet<Order> handledOrder;
+    
+    //TODO set<ExecutiveCustomer> consultedCustomer inverse ExecutiveCustomer::consultant; + SETTER + GETTER
+    //private HashSet<ExecutiveCustomer> consultedCustomer;
 
     public Employee(){
-        
+        this.phoneNumber = new HashSet<>();
+        //this.handledOrder = new HashSet<>();
+        //this.consultedCustomer = new HashSet<>();
     }
     
     public Employee(String id){
         this.phoneNumber = new HashSet<>();
         this.id = id;
+        //this.handledOrder = new HashSet<>();
+        //this.consultedCustomer = new HashSet<>();
     }
     
     public String getID(){

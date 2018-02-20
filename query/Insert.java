@@ -84,6 +84,20 @@ public class Insert {
           employee.setBirthDate(new Date(1980, 11, 13));
           em.persist(employee);
         em.getTransaction().commit();
+        
+        em.getTransaction().begin();
+          IDCard idcardRegular = new IDCard("3573011705960002", "KTP");
+          em.persist(idcardRegular);
+        em.getTransaction().commit();
+        
+        em.getTransaction().begin();
+          RegularCustomer regularCustomer = new RegularCustomer(idcardRegular);
+          regularCustomer.setBirthDate(new Date(96, 05, 17));
+          regularCustomer.setName("Cendhika Imantoro");
+          regularCustomer.setLocation(locationc);
+          regularCustomer.addPhoneNumber("085731330212");
+          em.persist(regularCustomer);
+        em.getTransaction().commit();
       em.close();
     emf.close();
   }
