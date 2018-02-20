@@ -251,7 +251,7 @@ public class Insert {
             em.persist(employee1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-          Employee employee2 = new Employee("02-2016-04-07-01");
+            Employee employee2 = new Employee("02-2016-04-07-01");
             employee2.setName("Bonar");
             employee2.setLocation(location10);
             employee2.addPhoneNumber("082345729234");
@@ -282,7 +282,33 @@ public class Insert {
             em.persist(card2);
           em.getTransaction().commit();
           //Good
-          
+          em.getTransaction().begin();
+            Good good1 = new Good("Cl-001");
+            good1.setDescription("Kagura's Clothes");
+            good1.setColor("Red");
+            good1.setSize("32AA");
+            good1.setType("Clothing");
+            good1.setQuantity(5);
+            em.persist(good1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Good good2 = new Good("Sw-001");
+            good2.setDescription("Gintoki's Bouken");
+            good2.setColor("Brown");
+            good2.setSize("70cm");
+            good2.setType("Sword");
+            good2.setQuantity(2);
+            em.persist(good2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Good good3 = new Good("Ac-001");
+            good3.setDescription("Shinpachi's Glasses");
+            good3.setColor("Silver");
+            good3.setSize("-4.50");
+            good3.setType("Accessory");
+            good3.setQuantity(7);
+            em.persist(good3);
+          em.getTransaction().commit();
         //Section 4 GoodInBranch Component
           //GoodInBranch
           
