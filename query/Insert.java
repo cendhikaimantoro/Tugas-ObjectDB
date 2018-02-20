@@ -235,7 +235,27 @@ public class Insert {
             em.persist(nonhq2);
           em.getTransaction().commit();
           //Employee
-          
+          em.getTransaction().begin();
+            Employee employee1 = new Employee("01-2014-03-05-01");
+            employee1.setName("Ujang");
+            employee1.setLocation(location9);
+            employee1.addPhoneNumber("081345471223");
+            employee1.setStartingDate(new Date(114, 5, 3));
+            employee1.setBaseSalary(1500000);
+            employee1.setBirthDate(new Date(80, 11, 13));
+            em.persist(employee1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+          Employee employee2 = new Employee("02-2016-04-07-01");
+            employee2.setName("Bonar");
+            employee2.setLocation(location10);
+            employee2.addPhoneNumber("082345729234");
+            employee2.addPhoneNumber("081723450293");
+            employee2.setStartingDate(new Date(116, 4, 7));
+            employee2.setBaseSalary(2500000);
+            employee2.setBirthDate(new Date(89, 10, 26));
+            em.persist(employee2);
+          em.getTransaction().commit();
         //Section 3 Card, Good
           //Card
           
