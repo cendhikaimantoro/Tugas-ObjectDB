@@ -355,7 +355,31 @@ public class Insert {
           em.getTransaction().commit();
         //Section 5 Order
           //Order
-          
+          em.getTransaction().begin();
+            Order order1 = new Order("ORD001", nonhq1);
+            order1.setOrderDate(new Date(118,2, 15));
+            order1.setType(Order.Type.card);
+            order1.setUsedCard(card1);
+            order1.setCustomer(executiveCustomer1);
+            order1.setHandler(employee1);
+            em.persist(order1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Order order2 = new Order("ORD001", nonhq2);
+            order2.setOrderDate(new Date(118,2, 18));
+            order2.setType(Order.Type.cash);
+            order2.setCustomer(regularCustomer1);
+            order2.setHandler(employee2);
+            em.persist(order2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Order order3 = new Order("ORD002", nonhq1);
+            order3.setOrderDate(new Date(118,2, 19));
+            order3.setType(Order.Type.cash);
+            order3.setCustomer(regularCustomer2);
+            order3.setHandler(employee1);
+            em.persist(order3);
+          em.getTransaction().commit();
         //Section 6 OrderQty
           //OrderQty
           em.getTransaction().begin();
