@@ -183,7 +183,7 @@ public class Insert {
             executiveCustomer2.setBirthDate(new Date(97, 11, 24));
             executiveCustomer2.setName("Richard Wellianto");
             executiveCustomer2.setLocation(location2);
-            executiveCustomer2.addPho neNumber("082874638462");
+            executiveCustomer2.addPhoneNumber("082874638462");
             executiveCustomer2.setDiscount(0.15f);
             em.persist(executiveCustomer2);
           em.getTransaction().commit();
