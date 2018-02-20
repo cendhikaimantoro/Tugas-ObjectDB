@@ -464,48 +464,41 @@ public class Insert {
             em.persist(regularCustomer3);
           em.getTransaction().commit();
           //HQ
-          em.getTransaction().begin();
-            HQ hq1 = new HQ("HQ-001");
-            hq1.setName("HeadQuarter");
-            hq1.setLocation(location6);
-            hq1.setArea(2000);
-            em.persist(hq1);
-          em.getTransaction().commit();
+          
           //NonHQ
           em.getTransaction().begin();
-            NonHQ nonhq1 = new NonHQ("NHQ-001");
-            nonhq1.setName("Kantor Cabang Cisitu");
-            nonhq1.setLocation(location7);
-            nonhq1.setArea(500);
+            nonhq1.addCustomer(executiveCustomer1);
+            nonhq1.addCustomer(regularCustomer1);
+            nonhq1.addCustomer(regularCustomer3);
+            nonhq1.addPlacedOrder(order1);
+            nonhq1.addPlacedOrder(order3);
+            nonhq1.addWorker(employee1);
+            nonhq1.addStoredGood(goodinbranch2);
+            nonhq1.addStoredGood(goodinbranch3);
+            nonhq1.addStoredGood(goodinbranch5);
             em.persist(nonhq1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            NonHQ nonhq2 = new NonHQ("NHQ-002");
-            nonhq2.setName("Kantor Cabang Kopo");
-            nonhq2.setLocation(location8);
-            nonhq2.setArea(1000);
+            nonhq2.addCustomer(executiveCustomer2);
+            nonhq2.addCustomer(regularCustomer2);
+            nonhq2.addPlacedOrder(order2);
+            nonhq2.addWorker(employee2);
+            nonhq2.addStoredGood(goodinbranch1);
+            nonhq2.addStoredGood(goodinbranch4);
             em.persist(nonhq2);
           em.getTransaction().commit();
           //Employee
           em.getTransaction().begin();
-            Employee employee1 = new Employee("01-2014-03-05-01");
-            employee1.setName("Ujang");
-            employee1.setLocation(location9);
-            employee1.addPhoneNumber("081345471223");
-            employee1.setStartingDate(new Date(114, 5, 3));
-            employee1.setBaseSalary(1500000);
-            employee1.setBirthDate(new Date(80, 11, 13));
+            employee1.setBranch(nonhq1);
+            employee1.addHandledOrder(order1);
+            employee1.addHandledOrder(order3);
+            employee1.addConsultedCustomer(executiveCustomer1);
             em.persist(employee1);
           em.getTransaction().commit();
           em.getTransaction().begin();
-            Employee employee2 = new Employee("02-2016-04-07-01");
-            employee2.setName("Bonar");
-            employee2.setLocation(location10);
-            employee2.addPhoneNumber("082345729234");
-            employee2.addPhoneNumber("081723450293");
-            employee2.setStartingDate(new Date(116, 4, 7));
-            employee2.setBaseSalary(2500000);
-            employee2.setBirthDate(new Date(89, 10, 26));
+            employee2.setBranch(nonhq2);
+            employee2.addHandledOrder(order2);
+            employee2.addConsultedCustomer(executiveCustomer2);
             em.persist(employee2);
           em.getTransaction().commit();
         //Section 3 Card, Good
@@ -602,7 +595,31 @@ public class Insert {
           em.getTransaction().commit();
         //Section 5 Order
           //Order
-          
+          em.getTransaction().begin();
+            Order order1 = new Order("ORD001", nonhq1);
+            order1.setOrderDate(new Date(118,2, 15));
+            order1.setType(Order.Type.card);
+            order1.setUsedCard(card1);
+            order1.setCustomer(executiveCustomer1);
+            order1.setHandler(employee1);
+            em.persist(order1);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Order order2 = new Order("ORD001", nonhq2);
+            order2.setOrderDate(new Date(118,2, 18));
+            order2.setType(Order.Type.cash);
+            order2.setCustomer(regularCustomer1);
+            order2.setHandler(employee2);
+            em.persist(order2);
+          em.getTransaction().commit();
+          em.getTransaction().begin();
+            Order order3 = new Order("ORD002", nonhq1);
+            order3.setOrderDate(new Date(118,2, 19));
+            order3.setType(Order.Type.cash);
+            order3.setCustomer(regularCustomer2);
+            order3.setHandler(employee1);
+            em.persist(order3);
+          em.getTransaction().commit();
         //Section 6 OrderQty
           //OrderQty
           em.getTransaction().begin();
