@@ -419,6 +419,7 @@ public class Insert {
             executiveCustomer1.addCard(card1);
             executiveCustomer1.setRegistrationBranch(nonhq1);
             executiveCustomer1.setConsultant(employee1);
+            executiveCustomer1.addIssuedOrder(order1);
             em.persist(executiveCustomer1);
           em.getTransaction().commit();
           em.getTransaction().begin();
@@ -429,11 +430,13 @@ public class Insert {
           //RegularCustomer
           em.getTransaction().begin();
             regularCustomer1.setRegistrationBranch(nonhq1);
+            regularCustomer1.addIssuedOrder(order2);
             em.persist(regularCustomer1);
           em.getTransaction().commit();
           em.getTransaction().begin();
             regularCustomer2.addCard(card2);
             regularCustomer2.setRegistrationBranch(nonhq2);
+            regularCustomer2.addIssuedOrder(order2);
             em.persist(regularCustomer2);
           em.getTransaction().commit();
           em.getTransaction().begin();
@@ -488,22 +491,8 @@ public class Insert {
         //Section 3 Card, Good
           //Card
           em.getTransaction().begin();
-            Card card1 = new Card("1673894562789");
-            card1.setBank("BNI");
-            card1.setType(Card.Type.credit);
-            card1.setLastTransactionDate(new Date(117,12, 29));
-            card1.setTotalTransaction(1000000);
-            card1.setExpirationDate(new Date(118,10, 30));
+            card1.addPaidOrder(order1);
             em.persist(card1);
-          em.getTransaction().commit();
-          em.getTransaction().begin();
-            Card card2 = new Card("3739473759302");
-            card2.setBank("BCA");
-            card2.setType(Card.Type.debit);
-            card2.setLastTransactionDate(new Date(118,2, 5));
-            card2.setTotalTransaction(165000);
-            card2.setExpirationDate(new Date(120,5, 31));
-            em.persist(card2);
           em.getTransaction().commit();
           //Good
           em.getTransaction().begin();
